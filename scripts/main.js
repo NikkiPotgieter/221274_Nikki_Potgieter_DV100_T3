@@ -28,3 +28,22 @@ $(document).ready(function(){
     $(".card-img-top").toggleClass("small");
 
   });
+
+  $(document).ready(function() {
+    // Toggle accordion content
+    $(".accordion-item-header").click(function() {
+      $(this).parent().toggleClass("active");
+      $(this).next().slideToggle();
+    });
+  });
+
+  $(document).ready(function() {
+    // Add active class to clicked trip card and show/hide purchase button
+    $(".trip-card").click(function() {
+      $(".trip-card").removeClass("active");
+      $(this).addClass("active");
+      $(".purchase-btn").hide();
+      $(this).find(".purchase-btn").show();
+    });
+  });
+  

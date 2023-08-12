@@ -25,7 +25,7 @@ button {
     border: none;
     padding: 16px 20px;
     border-radius: 8px;
-    background: #18382B;
+    background: #ca7030;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     color: white;
@@ -42,7 +42,7 @@ button {
 }
 
 .nav-link:hover {
-    color: #18382B;
+    color: #302779;
 }
 
 .nav-link.active {
@@ -50,11 +50,15 @@ button {
     color: #18382B;
 }
 
+.navbar {
+    background-color: rgb(255, 201, 172);
+}
+
 
 /* Carousel */
 
 .carousel-item {
-    background-color: #E6F2E9;
+    background-color: rgb(255, 201, 172);
 }
 
 .carousel-control-next, .carousel-control-prev {
@@ -85,7 +89,6 @@ button {
 .card-img-top {
     width:auto;
     height:320px;
-    margin: auto;
     transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1); 
 }
 
@@ -105,3 +108,97 @@ button {
     position: relative;
     bottom: -100px;
 }
+
+/* Styling for accordion */
+.accordion {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .accordion-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .accordion-item-header {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .accordion-item-content {
+    display: none;
+    margin-top: 10px;
+  }
+  
+  /* Styling for accordion icons */
+  .accordion-item-header::after {
+    content: "\25BE"; /* Down arrow */
+    float: right;
+  }
+  
+  .accordion-item.active .accordion-item-header::after {
+    content: "\25B4"; /* Up arrow */
+  }
+
+  /* Styling for trip cards */
+.trip-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+  }
+  
+  .trip-card.active {
+    border-color: #007bff; /* Change color to indicate active */
+  }
+  
+  .trip-card .trip-info {
+    font-weight: bold;
+  }
+  
+  .trip-card .trip-details {
+    margin-top: 10px;
+  }  
+
+.h2 {
+    text-align: center;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(255, 201, 172);
+  }
+  
+  .footer-left,
+  .footer-middle,
+  .footer-right {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .footer-left p {
+    margin: 0;
+    color: white;
+  }
+  
+  .footer-middle img {
+    max-width: 100px;
+  }
+  
+  .footer-right a {
+    color: white;
+    margin: 0 5px;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  .footer-right a:hover {
+    color: #ddd;
+  }
+  

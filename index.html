@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Plant Shop</title>
+    <title>Thalassophile</title>
 
     <!-- Style Sheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -14,7 +14,7 @@
     <!-- ------------------------------------------------------------------------------------------------ -->
     <!-- Nav Bar -->
 
-    <nav class="navbar fixed-top">
+    <nav class="navbar">
       <div class="container">
         
         <!-- Logo -->
@@ -48,11 +48,12 @@
           <div class="container">
             <div class="row full-height">
               <div class="col align-self-center">
-                <h1>Mexico</h1>
+                <h3>Caribbean Island</h3>
+                <p>Enjoy a week-long cruise to the Caribbean, visiting beautiful beaches, crystal-clear waters, and exotic islands.</p>
                 <button class="mt-4">Browse trips</button>
               </div>
               <div class="col align-self-end">
-                <img src="assets/mexico.jpg" class="hero-image" id="hero-image">
+                <img src="assets/Caribbean.jpg" class="hero-image" id="hero-image">
               </div>
             </div>
           </div>
@@ -63,25 +64,27 @@
           <div class="container">
             <div class="row full-height">
               <div class="col align-self-center">
-                <h1>Italy</h1>
+                <h3>European Cruise</h3>
+                <p>Explore the wonders of Europe on a cruise, visiting iconic cities like Paris, Rome, and London.</p>
                 <button class="mt-4">Browse trips</button>
               </div>
               <div class="col align-self-end">
-                <img src="assets/italy.jpg" class="hero-image" id="hero-image">
+                <img src="assets/European Cruise.jpg" class="hero-image" id="hero-image">
               </div>
             </div>
           </div>
         </div>
-
+        <!-- Slide 3 -->
         <div class="carousel-item active">
           <div class="container">
             <div class="row full-height">
               <div class="col align-self-center">
-                <h1>Santorini</h1>
+                <h3>Asian Cruise</h3>
+                <p>Discover the beauty of Asia on a cruise, visiting ancient temples, bustling cities, and stunning beaches.</p>
                 <button class="mt-4">Browse trips</button>
               </div>
               <div class="col align-self-end">
-                <img src="assets/santorini.jpg" class="hero-image" id="hero-image">
+                <img src="assets/Asia cruise.jpg" class="hero-image" id="hero-image">
               </div>
             </div>
           </div>
@@ -100,16 +103,87 @@
       </button>
     </div>
     <br>
-    <h1>Locations</h1>
-    <br>
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="assets/asia.jpg" alt="Asia" width="80">
-      <div class="card-body">
-        <h5 class="card-title">Boat trip to Asia</h5>
-        <p class="card-text">7 day trip boat trip to Asia. <br>3 days in Asia.</p>
-        <a href="#" class="btn btn-primary">Book Now</a>
+    <section class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-item-header">Cruise Map</div>
+        <div class="accordion-item-content">
+          <p>Explore our cruise destinations on the map.</p>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12367286.690984864!2d2.1222823647390245!3d40.820119293446055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d4fe82448dd203%3A0xe22cf55c24635e6f!2sItaly!5e0!3m2!1sen!2sza!4v1691827681047!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
+    
+      <div class="accordion-item">
+        <div class="accordion-item-header">Additional Information</div>
+        <div class="accordion-item-content">
+          <p>Get more details about our cruise ship amenities.</p>
+          <!-- Additional information content -->
+        </div>
+      </div>
+    
+      <div class="accordion-item">
+        <div class="accordion-item-header">FAQ</div>
+        <div class="accordion-item-content">
+          <p>Commonly asked questions about our cruise trips.</p>
+          <!-- FAQ content -->
+        </div>
+      </div>
+    </section>
+    <br>
+    <h2>Locations</h2>
+    <br>
+    <div class="row">
+      <div class="col-4">
+        <div class="trip-card" style="width: 80%">
+          <img class="card-img-top" src="assets/asia.jpg" alt="Asia">
+          <div class="card-body">
+            <h5 class="trip-info">Destination: Asia</h5>
+            <p class="trip-details"><p>Departure: July 15, 2023</p>
+            <p>Duration: 7 days</p>
+            <p>Trip Code: ASI123</p></p>
+            <button class="purchase-btn">Purchase Ticket</button>          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="trip-card" style="width: 80%">
+          <img class="card-img-top" src="assets/bali.jpeg" alt="Bali">
+          <div class="card-body">
+            <h5 class="trip-info">Destination: Bali</h5>
+            <p class="trip-details"><p>Departure: August 10, 2023</p>
+            <p>Duration: 10 days</p>
+            <p>Trip Code: BALI456</p></p>
+            <br>
+            <button class="purchase-btn">Purchase Ticket</button>          </div>
+        </div>
+      </div>
+      
+      <div class="col-4">
+        <div class="trip-card" style="width: 80%">
+          <img class="card-img-top" src="assets/maldives.jpg" alt="Maldives">
+          <div class="card-body">
+            <h5 class="trip-info">Destination: Maldives</h5>
+            <p class="trip-details"><p>Departure: September 5, 2023</p>
+            <p>Duration: 14 days</p>
+            <p>Trip Code: CRB123</p></p>
+            <br>
+            </div>
+            <button class="purchase-btn">Purchase Ticket</button>
+          </div>
+        </div>
     </div>
+    
+    <footer class="footer">
+      <div class="footer-left">
+        <h5>T & C's apply</h5>
+      </div>
+      <div class="footer-middle">
+        <img src="assets/Logo.png" alt="Thalassophile Logo" height="80">
+      </div>
+      <div class="footer-right">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </footer>
 
     <!-- Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
