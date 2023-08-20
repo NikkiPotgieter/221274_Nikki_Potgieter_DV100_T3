@@ -46,8 +46,8 @@ button {
 }
 
 .nav-link.active {
-    border-bottom: 2px solid #18382B;
-    color: #18382B;
+    border-bottom: 2px solid #302779;
+    color: #302779;
 }
 
 .navbar {
@@ -146,6 +146,7 @@ button {
 .trip-card {
     border: 1px solid #ccc;
     border-radius: 5px;
+    text-align: center;
     padding: 10px;
     margin: 10px;
     display: inline-block;
@@ -202,3 +203,174 @@ button {
     color: #ddd;
   }
   
+  .row{
+    display: flex;
+  }
+
+  .btn{
+    padding: 10px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 5px;
+    background-color: rgb(255, 201, 172);
+    border: none;
+    margin: 10px;
+  }
+  
+  .btn.secondary{
+    background-color: rgb(203, 131, 93);
+  }
+  
+  .btn:hover{
+    background-color: rgb(203, 131, 93);
+    transition: 0.3s;
+  }
+  
+  .btn:active{
+    background-color: rgb(255, 201, 172);
+  }
+  
+  .btn.secondary:active{
+    background-color: rgb(255, 201, 172);
+  }
+
+.vinyls-sold-banner{
+    color: rgb(255, 201, 172);
+}
+  
+.vinyls-sold-number{
+    color:  rgb(203, 131, 93);
+} 
+  
+.c-card{
+    background-color: white;
+    padding: 32px;
+}
+  
+.c-btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    z-index: 10px;
+    cursor: pointer;
+    background-color: white;
+    font-size: 18px;
+}
+  
+.c-btn:active {
+    transform: scale(1.1);
+}
+  
+.c-btn-prev {
+    top: 150px;
+    left: 2%;
+}
+  
+.c-btn-next {
+    top: 150px;
+    right: 2%;
+}
+  
+.section{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+  
+.section select{
+    width: 4rem;
+}
+  
+.section label{
+    color: rgb(203, 131, 93);
+}
+  
+.vinyl_section{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.vinyls-sold-banner{
+  text-align: center;
+  color: rgb(203, 131, 93);
+}
+
+.vinyls-sold-number{
+  color: rgb(255, 201, 172);
+}
+  
+.row{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container{
+  margin-left: auto;
+  margin-right: auto;
+}
+  
+#items-in-cart{
+    background-color:  rgb(203, 131, 93);
+    color: white;
+    border-radius: 100%;
+    font-size: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-left: -15px;
+}
+  
+.primary-button a {
+    text-decoration: none;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    width: auto;
+    padding: 0px 18px;
+    height: 36px;
+    background-color:  rgb(203, 131, 93);
+    font-size: 13px;
+    color: #121212;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+    line-height: 36px;
+}
+
+.weather-widget {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.weather-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.weather-content {
+  text-align: center;
+}
+
+.location {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.temperature {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 16px;
+}
