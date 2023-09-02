@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', (e) => {
+document.addEventListener("DOMContentLoaded", (e) => {
+
   console.log(`Document is ready!`);
 
   console.log(Math.round(Math.random()*12));
@@ -52,22 +53,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
   console.log("least " + least_index);
   console.log("most " + most_index);
 
-  // Most expensive vinyl
-  document.getElementById("most_expensive").addEventListener("click", function () {
-    var mvv = document.getElementById("mvv");
-    console.log(vinyls);
-    mvv.innerHTML = '<div class="trip-card"><img height="200" src="' + vinyls[most_index].path + '"><p>' + vinyls[most_index].rating + '</p><h3>' + vinyls[most_index].name + '</h3><p class="ZAR">R' + vinyls[most_index].priceZAR + '</p><p class="USD" style="display: none;">$' + vinyls[most_index].priceUSD + '</p><button class="btn" onclick="addToCart(' + vinyls[most_index].id + ')">Purchase Ticket</button></div>';
-    convert_display();
-  })
-
-  // Cheapest vinyl
-  document.getElementById("least_expensive").addEventListener("click", function () {
-    var lvv = document.getElementById("lvv");
-
-    lvv.innerHTML= '<div class="trip-card"><img height="200" src= "'+ vinyls[least_index].path+'"><p>'+vinyls[least_index].rating+'</p><h3>'+vinyls[least_index].name+'</h3><p class="ZAR">R'+vinyls[least_index].priceZAR+'</p><p class="USD" style="display: none;">$'+vinyls[least_index].priceUSD+'</p><button class="btn" onclick="addToCart('+ vinyls[least_index].id +')">Purchase Ticket</button></div>';
-    convert_display();
-    })
-
   var dollars = document.getElementsByClassName('USD');
       var rands = document.getElementsByClassName('ZAR');
 
@@ -81,7 +66,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
                 isConverted = true;
             }
             convert_display();
-        });
+      });
      
         function convert_display(){
             if (isConverted) {
@@ -107,22 +92,12 @@ document.addEventListener('DOMContentLoaded', (e) => {
         var cart = [];
         var totalZAR = 0;
         var totalUSD = 0;
+        
+        
 
-        function addToCart(index) {
-          cart.push(index);
-          console.log(cart);
-          
-          totalZAR = totalZAR + parseInt(vinyls[index].priceZAR);
-          totalUSD = totalUSD + parseInt(vinyls[index].priceUSD);
-
-          console.log("Total ZAR: " + totalZAR);
-          console.log("Total USD: " + totalUSD);
-
-          display_cart();
-        }
         // Items in cart
         function display_cart() {
-            var cart_div = document.getElementById('cart');
+            var cart_div = document.getElementById('trip-card');
             var checkout_page = document.getElementById('checkout_page');
             cart_div.innerHTML = "";
             if (cart.length != 0) {
@@ -140,6 +115,16 @@ document.addEventListener('DOMContentLoaded', (e) => {
             convert_display();
         }
         display_cart();
+
+                // Retrieve the selected trip information from localStorage
+        var selectedTripInfo = JSON.parse(localStorage.getItem('selectedTrip'));
+
+        // Display the information on the checkout page
+        document.getElementById('destination').textContent = selectedTripInfo.destination;
+        document.getElementById('departure').textContent = selectedTripInfo.departure;
+        document.getElementById('duration').textContent = selectedTripInfo.duration;
+        document.getElementById('tripCode').textContent = selectedTripInfo.tripCode;
+
 
         //  Displays total amount
         function display_total(amountZAR, amountUSD) {
@@ -200,32 +185,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
             clear_cart();
         }
 
-        var slidePosition = 1;
-        SlideShow(slidePosition);
-
-        function plusSlides(n) {
-        SlideShow(slidePosition = slidePosition + n);
-        }
-
-        function currentSlide(n) {
-        SlideShow(slidePosition = n);
-        }
-
-        function SlideShow(n) {
-        var i;
-        var slides = document.getElementsByClassName("Containers");
-        var circles = document.getElementsByClassName("dots");
-        if (n > slides.length) {slidePosition = 1}
-        if (n < 1) {slidePosition = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < circles.length; i++) {
-            circles[i].className = circles[i].className.replace(" enable", "");
-        }
-        slides[slidePosition-1].style.display = "block";
-        circles[slidePosition-1].className += " enable";
-        }
 
         ratings();
         function ratings() {
@@ -246,7 +205,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
 
 const apiKey = 'ca63f58065e1d4e5e31e1f6a183529d1';
-const city = 'Cape Town'; // Replace with the desired city
+const city = 'Cape Town';
 
 const locationElement = document.getElementById('location');
 const temperatureElement = document.getElementById('temperature');
@@ -269,7 +228,7 @@ fetchWeather();
 
 
 // When the document loads
-$(document).ready(function(){
+$(document).ready(function() {
 
     console.log("Hello");
 

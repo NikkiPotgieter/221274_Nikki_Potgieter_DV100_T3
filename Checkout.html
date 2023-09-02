@@ -45,21 +45,24 @@
     <br>
     <br>
     <div id="Checkout" style="display: block;">
-      <div class="vinyls-sold-banner" id="vinyls-sold"></div>
       <div class="section">
-        <div class="vinyl_section" id="cart"></div>
+          <div class="vinyl_section" id="trip-card">
+            <div id="cart-items"></div>
+            <div id="cart-total"></div>
+          </div>
       </div>
       <div class="section">
-        <div id="checkout_page">
-          <h2 class="ZAR" id="cart-total-zar"></h2>
-          <h2 class="USD" id="cart-total-usd"></h2>
-          <input type="text" placeholder="Coupon Code" id="coupon_field"><br>                
-          <p class="coupon-error" id="coupon-error" style="display: none;">That coupon is invalid</p>
-          <button id="apply-coupon" class="btn secondary" onclick="applyCoupon()">Submit</button><br>
-          <button class="btn" onclick="checkout()">Checkout</button>
-        </div>
+          <div id="checkout_page">
+              <h2 class="ZAR" id="cart-total"></h2>
+              <h2 class="USD" id="cart-total-usd"></h2>
+              <input type="text" placeholder="Coupon Code" id="coupon_field"><br>                
+              <p class="coupon-error" id="coupon-error" style="display: none;">That coupon is invalid</p>
+              <button id="apply-coupon" class="btn secondary" onclick="applyCoupon()">Submit</button><br>
+              <button class="btn" onclick="checkout()">Checkout</button>
+            </div>
+          </div>
       </div>
-    </div>
+      
 
     <footer class="footer">
       <div class="footer-left">
@@ -79,6 +82,104 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="scripts/main.js"></script>
+  <script>
+    
+    var totalZAR = 0;
+    var totalUSD = 0;
+    // Get the cart data from localStorage
+    var cartData = JSON.parse(localStorage.getItem('cart'));
+
+    // Get the HTML element where you want to display the cart items
+    var cartItemsContainer = document.getElementById('cart-items');
+    var cartTotalContainer = document.getElementById('cart-total');
+
+
+    var totalAmount = 0;
+
+    if (cartData && cartData.length > 0) {
+        var cartHTML = '<h2>Your Cart:</h2><ul>';
+          
+        // Loop through each item in the cart
+        for (var i = 0; i < cartData.length; i++) {
+            var item = cartData[i];
+            cartHTML += `<div class="trip-card" style="width: 80%">
+            <div class="card-body">
+              <h5 class="trip-info">Destination: ${item.name}</h5>
+              <p class="trip-details">
+                <p>Departure: ${item.depart}</p>
+                <p>Duration: ${item.duration}</p>
+                <p>Trip Code: ${item.code}</p>
+                <p>Price ZAR: R ${item.priceZAR}</p>
+                <p>Rating: ${item.rating}</p>
+              </p>
+            </div>
+          </div>`;
+
+          totalAmount += parseFloat(item.priceZAR);
+        }
+
+        cartHTML += '</ul>';
+
+        cartItemsContainer.innerHTML = cartHTML;
+    } else {
+        // If the cart is empty, display a message
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+    }
+
+    cartTotalContainer.innerHTML = '<h2>Total: R ' + totalAmount.toFixed(2) + ' </h2>';
+
+
+    // Clear cart
+    function clear_cart() {
+        cart = [];
+        totalZAR = 0;
+        totalUSD = 0;
+
+        var coupon = document.getElementById('coupon_field');
+        var error = document.getElementById('coupon-error');
+        var submit = document.getElementById('apply-coupon');
+
+        coupon.disabled = false;
+        coupon.placeholder = "Coupon code";
+        submit.disabled = false;
+        coupon.style = "";
+
+        display_cart();
+    }
+
   
+    // Deducts the discount 
+    function applyCoupon() {
+        var coupon = document.getElementById('coupon_field');
+        var error = document.getElementById('coupon-error');
+        var submit = document.getElementById('apply-coupon');
+
+        if (coupon.value == "DV100") {
+            totalZAR = totalZAR - (totalZAR / 100 * 25);
+            totalUSD = totalUSD - (totalUSD / 100 * 25);
+            error.style.display = "none";
+            coupon.style = "";
+            display_total(totalZAR, totalUSD);
+            coupon.disabled = true;
+            coupon.placeholder = "Coupon successful";
+            coupon.value = "";
+            submit.disabled = true;
+        } else {
+            // Shows an error if the code is invalid
+            error.style.display = "block";
+            coupon.placeholder = "INVALID COUPON CODE"
+            coupon.style.borderColor = "red";
+        }
+    }
+
+    //Items in cart and updates the number of items sold
+    var vinyls_sold = 0;
+    function checkout() {
+        vinyls_sold = vinyls_sold + cart.length;
+        document.getElementById('vinyls-sold').innerHTML = `<h3>We have sold <span class="vinyls-sold-number">` + vinyls_sold + `</span> trips </h3>`;
+        clear_cart();
+    }
+
+  </script>
   </body>
 </html>

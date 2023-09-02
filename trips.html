@@ -8,6 +8,7 @@
     <!-- Style Sheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/main.css">
+    
   </head>
   <body>
 
@@ -60,41 +61,41 @@
           <button id="generateVinyl" class="btn">Random Trip</button>
           <div class="vinyl_section" id="random_vinyl"></div>
           </div>
-          <div class="section">
-          <button id="most_expensive" class="btn">Most Expensive Trip</button>
-          <div class="vinyl_section" id="mvv"></div>
-          </div>
-          <div class="section">
-          <button id="least_expensive" class="btn">Cheapest Trip</button>
-          <div class="vinyl_section" id="lvv"></div>
-          </div>
         </div>
       </div>
       <div class="row">
         <!-- List Cards -->
-          <div class="col-4">
-            <div class="trip-card" style="width: 80%">
+        <div class="col-4">
+          <div class="trip-card" id="trip-card" style="width: 80%">
               <img class="card-img-top" src="assets/brazil.jpg" alt="Brazil">
               <div class="card-body">
-                <h5 class="trip-info">Destination: Brazil</h5>
-                <p class="trip-details"><p>Departure: January 10, 2024</p>
-                <p>Duration: 8 days</p>
-                <p>Trip Code: BRZ653</p></p>
-                <button class="btn" onclick="addToCart(`+ index +`)">Purchase Ticket</button>
-              </div>
-            </div>
+                  <h5 class="trip-info">Destination: Brazil</h5>
+                  <p class="trip-details">
+                      <p>Departure: January 10, 2024</p>
+                      <p>Duration: 8 days</p>
+                      <p>Trip Code: BRZ653</p>
+                      <p>Price ZAR: R 9 000 </p>
+                      <p>Rating: ★★★</p>
+                  </p>
+                  <button class="btn" onclick="addToCart()">Purchase Ticket</button>
+                </div>
           </div>
+        </div>        
     
           <div class="col-4">
             <div class="trip-card" style="width: 80%">
               <img class="card-img-top" src="assets/italy.jpg" alt="Italy">
               <div class="card-body">
                 <h5 class="trip-info">Destination: Italy</h5>
-                <p class="trip-details"><p>Departure: December 5, 2023</p>
-                <p>Duration: 12 days</p>
-                <p>Trip Code: ITL924</p></p>
-                <br>
-                <button class="purchase-btn">Purchase Ticket</button>          </div>
+                <p class="trip-details">
+                  <p>Departure: December 5, 2023</p>
+                  <p>Duration: 12 days</p>
+                  <p>Trip Code: ITL924</p>
+                  <p>Price ZAR: R 9,000</p>
+                  <p>Rating: ★★★</p>
+                </p>
+                <button class="btn" onclick="addToCart()"> Purchase Ticket</button></a>
+                </div>
             </div>
           </div>
           
@@ -103,10 +104,13 @@
               <img class="card-img-top" src="assets/machu picchu.jpg" alt="Machu Picchu">
               <div class="card-body">
                 <h5 class="trip-info">Destination: Machu Picchu</h5>
-                <p class="trip-details"><p>Departure: October 9, 2023</p>
-                <p>Duration: 9 days</p>
-                <p>Trip Code: MHP817</p></p>
-                <br>
+                <p class="trip-details">
+                  <p>Departure: October 9, 2023</p>
+                  <p>Duration: 9 days</p>
+                  <p>Trip Code: MHP817</p>
+                  <p>Price ZAR: R 9,000</p>
+                  <p>Rating: ★★★</p>
+                </p>
                 </div>
                 <button class="purchase-btn">Purchase Ticket</button>
               </div>
@@ -118,8 +122,11 @@
               <div class="card-body">
                 <h5 class="trip-info">Destination: Mexico</h5>
                 <p class="trip-details"><p>Departure: November 3, 2023</p>
-                <p>Duration: 8 days</p>
-                <p>Trip Code: MXO158</p></p>
+                  <p>Duration: 8 days</p>
+                  <p>Trip Code: MXO158</p>
+                  <p>Price ZAR: R 9,000</p>
+                  <p>Rating: ★★★</p>
+                </p>
                 <button class="purchase-btn">Purchase Ticket</button>          </div>
             </div>
           </div>
@@ -130,8 +137,11 @@
               <div class="card-body">
                 <h5 class="trip-info">Destination: Paris</h5>
                 <p class="trip-details"><p>Departure: August 23, 2023</p>
-                <p>Duration: 13 days</p>
-                <p>Trip Code: PRS496</p></p>
+                  <p>Duration: 13 days</p>
+                  <p>Trip Code: PRS496</p>
+                  <p>Price ZAR: R 9,000</p>
+                  <p>Rating: ★★★</p>
+                </p>
                 <br>
                 <button class="purchase-btn">Purchase Ticket</button>          </div>
             </div>
@@ -143,8 +153,11 @@
               <div class="card-body">
                 <h5 class="trip-info">Destination: Santorini</h5>
                 <p class="trip-details"><p>Departure: September 18, 2023</p>
-                <p>Duration: 16 days</p>
-                <p>Trip Code: SNR374</p></p>
+                  <p>Duration: 16 days</p>
+                  <p>Trip Code: SNR374</p>
+                  <p>Price ZAR: R 9,000</p>
+                  <p>Rating: ★★★</p>
+                </p>
                 <br>
                 </div>
                 <button class="purchase-btn">Purchase Ticket</button>
@@ -157,8 +170,11 @@
                 <div class="card-body">
                   <h5 class="trip-info">Destination: Tajmahal India</h5>
                   <p class="trip-details"><p>Departure: April 11, 2024</p>
-                  <p>Duration: 7 days</p>
-                  <p>Trip Code: TJM295</p></p>
+                    <p>Duration: 7 days</p>
+                    <p>Trip Code: TJM295</p>
+                    <p>Price ZAR: R 9,000</p>
+                    <p>Rating: ★★★</p>
+                  </p>
                   <br>
                   </div>
                   <button class="purchase-btn">Purchase Ticket</button>
@@ -172,7 +188,10 @@
                     <h5 class="trip-info">Destination: Thailand</h5>
                     <p class="trip-details"><p>Departure: March 4, 2024</p>
                     <p>Duration: 8 days</p>
-                    <p>Trip Code: THL538</p></p>
+                    <p>Trip Code: THL538</p>
+                    <p>Price ZAR: R 9,000</p>
+                    <p>Rating: ★★★</p>
+                    </p>
                     <br>
                     </div>
                     <button class="purchase-btn">Purchase Ticket</button>
@@ -187,7 +206,10 @@
                       <h5 class="trip-info">Destination: Turkey</h5>
                       <p class="trip-details"><p>Departure: May 23, 2024</p>
                       <p>Duration: 11 days</p>
-                      <p>Trip Code: TRK105</p></p>
+                      <p>Trip Code: TRK105</p>
+                      <p>Price ZAR: R 9,000</p>
+                      <p>Rating: ★★★</p>
+                      </p>
                       <br>
                       </div>
                       <button class="purchase-btn">Purchase Ticket</button>
@@ -215,6 +237,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="scripts/main.js"></script>
     <script>
+    document.addEventListener("DOMContentLoaded", function () {  
       var vinyls = [
       {"id": "0", "name":"Asia", "priceZAR": "6 000", "priceUSD": "140", "rating": "★","path":"assets/asia.jpg"},
       {"id": "1", "name":"Santorini", "priceZAR": "20 000", "priceUSD": "500", "rating": "★★","path":"assets/santorini.jpg"},
@@ -273,14 +296,36 @@
         var totalUSD = 0;
 
         function addToCart(index) {
-            cart.push(index);
-            console.log(cart);
-            totalZAR = totalZAR + parseInt(vinyls[index].priceZAR);
-            totalUSD = totalUSD + parseInt(vinyls[index].priceUSD);
+            if (typeof index !== 'undefined') {
+                cart.push(index);
+                console.log(cart);
+                totalZAR = totalZAR + parseInt(vinyls[index].priceZAR);
+                totalUSD = totalUSD + parseInt(vinyls[index].priceUSD);
+                console.log("Total ZAR: " + totalZAR);
+                console.log("Total USD: " + totalUSD);
+                display_cart();
+
+                // Update the cart in localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+        }
+
+        // Function to display the cart
+        function display_cart() {
+            // Display the cart contents
+            console.log("Cart: ", cart);
+
+            // Display the total amounts
             console.log("Total ZAR: " + totalZAR);
             console.log("Total USD: " + totalUSD);
-            display_cart();
-          }
+        }
+
+        // Load the cart and display it on page load
+        display_cart();
+
+
+
+
         // Items in cart
         function display_cart() {
             var cart_div = document.getElementById('cart');
@@ -361,32 +406,6 @@
             clear_cart();
         }
 
-        var slidePosition = 1;
-        SlideShow(slidePosition);
-
-        function plusSlides(n) {
-        SlideShow(slidePosition = slidePosition + n);
-        }
-
-        function currentSlide(n) {
-        SlideShow(slidePosition = n);
-        }
-
-        function SlideShow(n) {
-        var i;
-        var slides = document.getElementsByClassName("Containers");
-        var circles = document.getElementsByClassName("dots");
-        if (n > slides.length) {slidePosition = 1}
-        if (n < 1) {slidePosition = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < circles.length; i++) {
-            circles[i].className = circles[i].className.replace(" enable", "");
-        }
-        slides[slidePosition-1].style.display = "block";
-        circles[slidePosition-1].className += " enable";
-        } 
 
         ratings();
         function ratings() {
@@ -402,7 +421,7 @@
             }
             convert_display();
         }
-
+    });
   </script>
 
   </body>
