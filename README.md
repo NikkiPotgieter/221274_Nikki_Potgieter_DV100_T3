@@ -55,3 +55,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <h2> Acknowledgements:</h2>
 Special thanks to Bootstrap and Google fonts for providing valuable resources and tools that made this project possible.
+
+Plagiarism document:
+See the `Plagiarism.pdf` document for more information.
