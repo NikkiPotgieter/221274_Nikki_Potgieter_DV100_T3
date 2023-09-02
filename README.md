@@ -48,10 +48,10 @@ git push origin contribute-task
 6. Create a Pull Request (PR) from your forked repository to the original repository.
 
 <h2> Authors: </h2>
-**Nikki Potgieter** - Developer
+Nikki Potgieter - Developer
 
 <h2> License: </h2>
-Distributed under the **MIT License**. See `LICENSE` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 <h2> Acknowledgements:</h2>
-Special thanks to **Bootstrap** and **Google fonts** for providing valuable resources and tools that made this project possible.
+Special thanks to Bootstrap and Google fonts for providing valuable resources and tools that made this project possible.
