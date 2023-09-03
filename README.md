@@ -1,4 +1,4 @@
-# 221274_Nikki_Potgieter_DV100_T3
+![Home page weather](https://github.com/NikkiPotgieter/221274_Nikki_Potgieter_DV100_T3/assets/125267113/c5676d70-38ff-4ad2-9502-25b0eb498964)# 221274_Nikki_Potgieter_DV100_T3
 
 About the page:
 
@@ -11,15 +11,17 @@ The home page on Thalassophile
 
 ![Home Page weather widget](<Home page weather.png>)
 The home page with weather widget on Thalassophile
-
+![Trip page filter](https://github.com/NikkiPotgieter/221274_Nikki_Potgieter_DV100_T3/assets/125267113/5bcbf633-74a2-4774-be3b-1f542e18ae89)
 
 The trip page with filter on Thalassophile
-
+![Trip page random](https://github.com/NikkiPotgieter/221274_Nikki_Potgieter_DV100_T3/assets/125267113/2c7e2117-4287-4e2f-a1ad-4f0976566782)
 The trip page with random trip on Thalassophile
-
+![Trip page all trips](https://github.com/NikkiPotgieter/221274_Nikki_Potgieter_DV100_T3/assets/125267113/eea0f73b-a6c9-4904-82dc-3aedaf8c5476)
 The trip page with all the trip on Thalassophile
 
-The home page with weather widget on Thalassophile
+My video:
+C:\Users\Nikki Potgieter\OneDrive\Desktop\Open Window 2nd year\DV Term 3\221274_Nikki_Potgieter_DV100_T3\Sceenshots\Nikki_Potgieter_221274_DV100_T3 video.mp4
+
 
 Getting started:
 
