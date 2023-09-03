@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   console.log(`Document is ready!`);
 
-  console.log(Math.round(Math.random()*12));
+  console.log(Math.round(Math.random()*13));
 
   var vinyls = [
       {"id": "0", "name":"Asia", "priceZAR": "6 000", "priceUSD": "140", "rating": "★","path":"assets/asia.jpg"},
@@ -91,13 +91,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
         //Cart
         var cart = [];
         var totalZAR = 0;
-        var totalUSD = 0;
+        //var totalUSD = 0;
         
         
 
         // Items in cart
         function display_cart() {
-            var cart_div = document.getElementById('trip-card');
+            var cart_div = document.getElementById('cart');
             var checkout_page = document.getElementById('checkout_page');
             cart_div.innerHTML = "";
             if (cart.length != 0) {
@@ -117,77 +117,122 @@ document.addEventListener("DOMContentLoaded", (e) => {
         display_cart();
 
                 // Retrieve the selected trip information from localStorage
-        var selectedTripInfo = JSON.parse(localStorage.getItem('selectedTrip'));
+        var selectedTripInfo = JSON.parse(localStorage.getItem('cart'));
 
         // Display the information on the checkout page
-        document.getElementById('destination').textContent = selectedTripInfo.destination;
-        document.getElementById('departure').textContent = selectedTripInfo.departure;
-        document.getElementById('duration').textContent = selectedTripInfo.duration;
-        document.getElementById('tripCode').textContent = selectedTripInfo.tripCode;
+        document.getElementById('name').textContent = selectedTripInfo.name;
+        document.getElementById('priceZAR').textContent = selectedTripInfo.priceZAR;
+        document.getElementById('code').textContent = selectedTripInfo.tripCode;
+        document.getElementById('rating').textContent = selectedTripInfo.rating;
 
 
-        //  Displays total amount
-        function display_total(amountZAR, amountUSD) {
-            var total_zar = document.getElementById('cart-total-zar');
-            var total_usd = document.getElementById('cart-total-usd');
-            total_zar.innerHTML = "R" + amountZAR;
-            total_usd.innerHTML = "$" + amountUSD;
-        }
-
-        // Clear cart
-        function clear_cart() {
-            cart = [];
-            totalZAR = 0;
-            totalUSD = 0;
-
-            var coupon = document.getElementById('coupon_field');
-            var error = document.getElementById('coupon-error');
-            var submit = document.getElementById('apply-coupon');
-
-            coupon.disabled = false;
-            coupon.placeholder = "Coupon code";
-            submit.disabled = false;
-            coupon.style = "";
-
-            display_cart();
-        }
+        
 
       
-        // Deducts the discount 
-        function applyCoupon() {
-            var coupon = document.getElementById('coupon_field');
-            var error = document.getElementById('coupon-error');
-            var submit = document.getElementById('apply-coupon');
+        
 
-            if (coupon.value == "DV100") {
-                totalZAR = totalZAR - (totalZAR / 100 * 25);
-                totalUSD = totalUSD - (totalUSD / 100 * 25);
-                error.style.display = "none";
-                coupon.style = "";
-                display_total(totalZAR, totalUSD);
-                coupon.disabled = true;
-                coupon.placeholder = "Coupon successful";
-                coupon.value = "";
-                submit.disabled = true;
-            } else {
-                // Shows an error if the code is invalid
-                error.style.display = "block";
-                coupon.placeholder = "INVALID COUPON CODE"
-                coupon.style.borderColor = "red";
-            }
-        }
+});
 
-        //Items in cart and updates the number of items sold
-        var vinyls_sold = 0;
-        function checkout() {
-            vinyls_sold = vinyls_sold + cart.length;
-            document.getElementById('vinyls-sold').innerHTML = `<h3>We have sold <span class="vinyls-sold-number">` + vinyls_sold + `</span> trips </h3>`;
-            clear_cart();
-        }
+function addToCart() {
+  let addToCart = document.getElementById("vinyls");
+  let total = document.getElementById("priceZAR");
 
+  addToCart.innerHTML = ``;
 
-        ratings();
-        function ratings() {
+  let priceZAR = 0;
+
+  for (let i = 0; i < vinyls.length; i++) {
+    let id = vinyls[i].id;
+    let name = vinyls[i].name;
+    let priceZAR = vinyls[i].priceZAR;
+    let rating = vinyls[i].rating;
+    let path = vinyls[i].path;
+
+    priceZAR += price;
+
+    addToCart.innerHTML += `
+      <div class="trip-card" id="trip1" style="width: 80%">
+        <img class="card-img-top" src=${path} alt=" ">
+        <div class="card-body">
+          <h5 class="trip-info">${name}</h5>
+          <p class="trip-details">
+            <p>${priceZAR.toFixed(2)}</p>
+            <p>${rating}</p>
+          </p>
+          <button class="purchase-btn" onclick="addToCart(${id})">Purchase Ticket</button>
+        </div>
+      </div>`;
+  }
+
+  total.innerHTML = "R" + priceZAR.toFixed(2);
+
+  // Add the vinyl to the cart
+  let cart = JSON.parse(localStorage.getItem('trip1'));
+  cart.push(id);
+  localStorage.setItem('trip1', JSON.stringify(cart));
+
+  // Redirect to the checkout page
+  window.location.href = 'Checkout.html';
+}
+
+function display_total(amountZAR, amountUSD) {
+  var total_zar = document.getElementById('cart-total-zar');
+  var total_usd = document.getElementById('cart-total-usd');
+  total_zar.innerHTML = "R" + amountZAR;
+  total_usd.innerHTML = "$" + amountUSD;
+}
+
+// Clear cart
+function clear_cart() {
+  cart = [];
+  totalZAR = 0;
+  totalUSD = 0;
+
+  var coupon = document.getElementById('coupon_field');
+  var error = document.getElementById('coupon-error');
+  var submit = document.getElementById('apply-coupon');
+
+  coupon.disabled = false;
+  coupon.placeholder = "Coupon code";
+  submit.disabled = false;
+  coupon.style = "";
+
+  display_cart();
+}
+
+function applyCoupon() {
+  var coupon = document.getElementById('coupon_field');
+  var error = document.getElementById('coupon-error');
+  var submit = document.getElementById('apply-coupon');
+
+  if (coupon.value == "DV100") {
+      totalZAR = totalZAR - (totalZAR / 100 * 25);
+      totalUSD = totalUSD - (totalUSD / 100 * 25);
+      error.style.display = "none";
+      coupon.style = "";
+      display_total(totalZAR, totalUSD);
+      coupon.disabled = true;
+      coupon.placeholder = "Coupon successful";
+      coupon.value = "";
+      submit.disabled = true;
+  } else {
+      // Shows an error if the code is invalid
+      error.style.display = "block";
+      coupon.placeholder = "INVALID COUPON CODE"
+      coupon.style.borderColor = "red";
+  }
+}
+
+//Items in cart and updates the number of items sold
+var vinyls_sold = 0;
+function checkout() {
+  vinyls_sold = vinyls_sold + cart.length;
+  document.getElementById('vinyls-sold').innerHTML = `<h3>We have sold <span class="vinyls-sold-number">` + vinyls_sold + `</span> trips </h3>`;
+  clear_cart();
+}
+
+filterbyrating();
+        function filterbyrating() {
             console.log("changed");
             var rating= document.getElementById("rating").value;
             var starrating= document.getElementById("StarRating");
@@ -199,10 +244,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
                 }
             }
             convert_display();
-        }
-
-});
-
+  }
 
 const apiKey = 'ca63f58065e1d4e5e31e1f6a183529d1';
 const city = 'Cape Town';

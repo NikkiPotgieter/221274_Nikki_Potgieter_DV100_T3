@@ -40,196 +40,196 @@
     </nav>
     <br>
     <br>
-      <h2 class="h2">Browse Trips</h2>
-      <div class="container">
+    <h2 class="h2">Browse Trips</h2>
+    <div class="container">
+      <div class="section">
+        <label>Filter: </label>
+        <select name="rating" onchange="filterbyrating()" id="rating">
+        <option value="★">Shortest Trip</option>
+        <option value="★★">Longest Trip</option>
+        <option value="★★★">Long Distance Trips</option>
+        <option value="★★★★">Asia Trips</option>
+        <option value="★★★★★">Trips To Islands</option>
+        <option value="★★★★★★">European Trips</option>
+        <option value="★★★★★★★">All Trips</option>
+        </select>
+        <div class="vinyl_section" id="StarRating"></div>
+      </div>
+  
+      <div class="row">
         <div class="section">
-          <label>Filter: </label>
-          <select name="rating" onchange="ratings()" id="rating">
-          <option value="★">Shortest Trip</option>
-          <option value="★★">Longest Trip</option>
-          <option value="★★★">Long Distance Trips</option>
-          <option value="★★★★">Asia Trips</option>
-          <option value="★★★★★">Trips To Islands</option>
-          <option value="★★★★★★">European Trips</option>
-          <option value="★★★★★★★">All Trips</option>
-          </select>
-          <div class="vinyl_section" id="StarRating"></div>
-        </div>
-    
-        <div class="row">
-          <div class="section">
-          <button id="generateVinyl" class="btn">Random Trip</button>
-          <div class="vinyl_section" id="random_vinyl"></div>
-          </div>
+        <button id="generateVinyl" class="btn">Random Trip</button>
+        <div class="vinyl_section" id="random_vinyl"></div>
         </div>
       </div>
-      <div class="row">
-        <!-- List Cards -->
-        <div class="col-4">
-          <div class="trip-card" id="trip-card" style="width: 80%">
-              <img class="card-img-top" src="assets/brazil.jpg" alt="Brazil">
-              <div class="card-body">
-                  <h5 class="trip-info">Destination: Brazil</h5>
-                  <p class="trip-details">
-                      <p>Departure: January 10, 2024</p>
-                      <p>Duration: 8 days</p>
-                      <p>Trip Code: BRZ653</p>
-                      <p>Price ZAR: R 9 000 </p>
-                      <p>Rating: ★★★</p>
-                  </p>
-                  <button class="btn" onclick="addToCart()">Purchase Ticket</button>
-                </div>
-          </div>
-        </div>        
-    
-          <div class="col-4">
-            <div class="trip-card" style="width: 80%">
-              <img class="card-img-top" src="assets/italy.jpg" alt="Italy">
-              <div class="card-body">
-                <h5 class="trip-info">Destination: Italy</h5>
+    </div>
+    <div class="row">
+      <!-- List Cards -->
+      <div class="col-4">
+        <div class="trip-card" id="trip1" style="width: 80%">
+            <img class="card-img-top" src="assets/brazil.jpg" alt="Brazil">
+            <div class="card-body">
+                <h5 class="trip-info" id="name">Destination: Brazil</h5>
                 <p class="trip-details">
-                  <p>Departure: December 5, 2023</p>
-                  <p>Duration: 12 days</p>
-                  <p>Trip Code: ITL924</p>
-                  <p>Price ZAR: R 9,000</p>
-                  <p>Rating: ★★★</p>
+                    <p>Departure: January 10, 2024</p>
+                    <p>Duration: 8 days</p>
+                    <p id="code">Trip Code: BRZ653</p>
+                    <p id="priceZAR">Price ZAR: R 9 000 </p>
+                    <p id="rating">Rating: ★★★</p>
                 </p>
-                <button class="btn" onclick="addToCart()"> Purchase Ticket</button></a>
-                </div>
-            </div>
-          </div>
-          
-          <div class="col-4">
-            <div class="trip-card" style="width: 80%">
-              <img class="card-img-top" src="assets/machu picchu.jpg" alt="Machu Picchu">
-              <div class="card-body">
-                <h5 class="trip-info">Destination: Machu Picchu</h5>
-                <p class="trip-details">
-                  <p>Departure: October 9, 2023</p>
-                  <p>Duration: 9 days</p>
-                  <p>Trip Code: MHP817</p>
-                  <p>Price ZAR: R 9,000</p>
-                  <p>Rating: ★★★</p>
-                </p>
-                </div>
-                <button class="purchase-btn">Purchase Ticket</button>
+                <button class="purchase-btn" onclick="addToCart()">Purchase Ticket</button>
               </div>
-            </div>
+          </div>
+      </div>        
+  
+        <div class="col-4">
+          <div class="trip-card" id="trip1" style="width: 80%">
+            <img class="card-img-top" src="assets/italy.jpg" alt="Italy">
+            <div class="card-body">
+              <h5 class="trip-info" id="name">Destination: Italy</h5>
+              <p class="trip-details">
+                <p>Departure: December 5, 2023</p>
+                <p>Duration: 12 days</p>
+                <p id="code">Trip Code: ITL924</p>
+                <p id="priceZAR">Price ZAR: R 9,000</p>
+                <p id="rating">Rating: ★★★</p>
+              </p>
+              <button class="purchase-btn" onclick="addToCart()"> Purchase Ticket</button></a>
+              </div>
+          </div>
+        </div>
         
-          <div class="col-4">
-            <div class="trip-card" style="width: 80%">
-              <img class="card-img-top" src="assets/mexico.jpg" alt="mexico">
-              <div class="card-body">
-                <h5 class="trip-info">Destination: Mexico</h5>
-                <p class="trip-details"><p>Departure: November 3, 2023</p>
-                  <p>Duration: 8 days</p>
-                  <p>Trip Code: MXO158</p>
-                  <p>Price ZAR: R 9,000</p>
-                  <p>Rating: ★★★</p>
-                </p>
-                <button class="purchase-btn">Purchase Ticket</button>          </div>
+        <div class="col-4">
+          <div class="trip-card" id="trip1" style="width: 80%">
+            <img class="card-img-top" src="assets/machu picchu.jpg" alt="Machu Picchu">
+            <div class="card-body">
+              <h5 class="trip-info" id="name">Destination: Machu Picchu</h5>
+              <p class="trip-details">
+                <p>Departure: October 9, 2023</p>
+                <p>Duration: 9 days</p>
+                <p id="code">Trip Code: MHP817</p>
+                <p id="priceZAR">Price ZAR: R 9 000 </p>
+                <p id="rating">Rating: ★★★</p>
+              </p>
+              </div>
+              <button class="purchase-btn" onclick="addToCart()">Purchase Ticket</button>
             </div>
           </div>
-    
-          <div class="col-4">
-            <div class="trip-card" style="width: 80%">
-              <img class="card-img-top" src="assets/paris.jpg" alt="Paris">
-              <div class="card-body">
-                <h5 class="trip-info">Destination: Paris</h5>
-                <p class="trip-details"><p>Departure: August 23, 2023</p>
-                  <p>Duration: 13 days</p>
-                  <p>Trip Code: PRS496</p>
-                  <p>Price ZAR: R 9,000</p>
-                  <p>Rating: ★★★</p>
-                </p>
-                <br>
-                <button class="purchase-btn">Purchase Ticket</button>          </div>
+      
+        <div class="col-4">
+          <div class="trip-card" id="trip1" style="width: 80%">
+            <img class="card-img-top" src="assets/mexico.jpg" alt="mexico">
+            <div class="card-body">
+              <h5 class="trip-info" id="name">Destination: Mexico</h5>
+              <p class="trip-details"><p>Departure: November 3, 2023</p>
+                <p>Duration: 8 days</p>
+                <p id="code">Trip Code: MXO158</p>
+                <p id="priceZAR">Price ZAR: R 9 000 </p>
+                <p id="rating">Rating: ★★★</p>
+              </p>
+              <button class="purchase-btn" onclick="addToCart()">Purchase Ticket</button>          </div>
+          </div>
+        </div>
+  
+        <div class="col-4">
+          <div class="trip-card" id="trip1" style="width: 80%">
+            <img class="card-img-top" src="assets/paris.jpg" alt="Paris">
+            <div class="card-body">
+              <h5 class="trip-info" id="name">Destination: Paris</h5>
+              <p class="trip-details"><p>Departure: August 23, 2023</p>
+                <p>Duration: 13 days</p>
+                <p id="code">Trip Code: PRS496</p>
+                <p id="priceZAR">Price ZAR: R 9 000 </p>
+                <p id="rating">Rating: ★★★</p>
+              </p>
+              <br>
+              <button class="purchase-btn" onclick="addToCart()">Purchase Ticket</button>          </div>
+          </div>
+        </div>
+        
+        <div class="col-4">
+          <div class="trip-card" id="trip1" style="width: 80%">
+            <img class="card-img-top" src="assets/santorini.jpg" alt="Santorini">
+            <div class="card-body">
+              <h5 class="trip-info" id="name">Destination: Santorini</h5>
+              <p class="trip-details"><p>Departure: September 18, 2023</p>
+                <p>Duration: 16 days</p>
+                <p id="code">Trip Code: SNR374</p>
+                <p id="priceZAR">Price ZAR: R 9 000 </p>
+                <p id="rating">Rating: ★★★</p>
+              </p>
+              <br>
+              </div>
+              <button class="purchase-btn" onclick="addToCart()">Purchase Ticket</button>
             </div>
           </div>
-          
+
           <div class="col-4">
-            <div class="trip-card" style="width: 80%">
-              <img class="card-img-top" src="assets/santorini.jpg" alt="Santorini">
+            <div class="trip-card" id="trip1" style="width: 80%">
+              <img class="card-img-top" src="assets/tajmahal india.jpg" alt="India">
               <div class="card-body">
-                <h5 class="trip-info">Destination: Santorini</h5>
-                <p class="trip-details"><p>Departure: September 18, 2023</p>
-                  <p>Duration: 16 days</p>
-                  <p>Trip Code: SNR374</p>
-                  <p>Price ZAR: R 9,000</p>
-                  <p>Rating: ★★★</p>
+                <h5 class="trip-info" id="name">Destination: Tajmahal India</h5>
+                <p class="trip-details"><p>Departure: April 11, 2024</p>
+                  <p>Duration: 7 days</p>
+                  <p id="code">Trip Code: TJM295</p>
+                  <p id="priceZAR">Price ZAR: R 9 000 </p>
+                  <p id="rating">Rating: ★★★</p>
                 </p>
                 <br>
                 </div>
-                <button class="purchase-btn">Purchase Ticket</button>
+                <button class="purchase-btn" onclick="addToCart()">Purchase Ticket</button>
               </div>
             </div>
 
             <div class="col-4">
-              <div class="trip-card" style="width: 80%">
-                <img class="card-img-top" src="assets/tajmahal india.jpg" alt="India">
+              <div class="trip-card" id="trip1" style="width: 80%">
+                <img class="card-img-top" src="assets/thailand.jpg" alt="Thailand">
                 <div class="card-body">
-                  <h5 class="trip-info">Destination: Tajmahal India</h5>
-                  <p class="trip-details"><p>Departure: April 11, 2024</p>
-                    <p>Duration: 7 days</p>
-                    <p>Trip Code: TJM295</p>
-                    <p>Price ZAR: R 9,000</p>
-                    <p>Rating: ★★★</p>
+                  <h5 class="trip-info" id="name">Destination: Thailand</h5>
+                  <p class="trip-details"><p>Departure: March 4, 2024</p>
+                  <p>Duration: 8 days</p>
+                  <p id="code">Trip Code: THL538</p>
+                  <p id="priceZAR">Price ZAR: R 9 000 </p>
+                  <p id="rating">Rating: ★★★</p>
                   </p>
                   <br>
                   </div>
-                  <button class="purchase-btn">Purchase Ticket</button>
+                  <button class="purchase-btn" onclick="addToCart()">Purchase Ticket</button>
                 </div>
               </div>
 
+
               <div class="col-4">
-                <div class="trip-card" style="width: 80%">
-                  <img class="card-img-top" src="assets/thailand.jpg" alt="Thailand">
+                <div class="trip-card" id="trip1" style="width: 80%">
+                  <img class="card-img-top" src="assets/turkey.jpg" alt="Turkey">
                   <div class="card-body">
-                    <h5 class="trip-info">Destination: Thailand</h5>
-                    <p class="trip-details"><p>Departure: March 4, 2024</p>
-                    <p>Duration: 8 days</p>
-                    <p>Trip Code: THL538</p>
-                    <p>Price ZAR: R 9,000</p>
-                    <p>Rating: ★★★</p>
+                    <h5 class="trip-info" id="name">Destination: Turkey</h5>
+                    <p class="trip-details"><p>Departure: May 23, 2024</p>
+                    <p>Duration: 11 days</p>
+                    <p id="code">Trip Code: TRK105</p>
+                    <p id="priceZAR">Price ZAR: R 9 000 </p>
+                    <p id="rating">Rating: ★★★</p>
                     </p>
                     <br>
                     </div>
-                    <button class="purchase-btn">Purchase Ticket</button>
+                    <button class="purchase-btn" onclick="addToCart()">Purchase Ticket</button>
                   </div>
-                </div>
+                </div> 
+  
+    </div>
 
-
-                <div class="col-4">
-                  <div class="trip-card" style="width: 80%">
-                    <img class="card-img-top" src="assets/turkey.jpg" alt="Turkey">
-                    <div class="card-body">
-                      <h5 class="trip-info">Destination: Turkey</h5>
-                      <p class="trip-details"><p>Departure: May 23, 2024</p>
-                      <p>Duration: 11 days</p>
-                      <p>Trip Code: TRK105</p>
-                      <p>Price ZAR: R 9,000</p>
-                      <p>Rating: ★★★</p>
-                      </p>
-                      <br>
-                      </div>
-                      <button class="purchase-btn">Purchase Ticket</button>
-                    </div>
-                  </div> 
-    
+    <footer class="footer">
+      <div class="footer-left">
+        <h5>T & C's apply</h5>
       </div>
-
-      <footer class="footer">
-        <div class="footer-left">
-          <h5>T & C's apply</h5>
-        </div>
-        <div class="footer-middle">
-          <img src="assets/Logo.png" alt="Thalassophile Logo" height="80">
-        </div>
-        <div class="footer-right">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-      </footer>      
+      <div class="footer-middle">
+        <img src="assets/Logo.png" alt="Thalassophile Logo" height="80">
+      </div>
+      <div class="footer-right">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </footer>      
 
     <!-- Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -237,192 +237,75 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="scripts/main.js"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {  
-      var vinyls = [
-      {"id": "0", "name":"Asia", "priceZAR": "6 000", "priceUSD": "140", "rating": "★","path":"assets/asia.jpg"},
-      {"id": "1", "name":"Santorini", "priceZAR": "20 000", "priceUSD": "500", "rating": "★★","path":"assets/santorini.jpg"},
-      {"id": "2", "name":"European Cruise", "priceZAR": "13 000", "priceUSD": "239", "rating": "★★★★★★" ,"path" :"assets/European Cruise.jpg"},
-      {"id": "3", "name":"Italy", "priceZAR": "15 000", "priceUSD": "300", "rating": "★★★★★★" , "path": "assets/italy.jpg"},
-      {"id": "4", "name":"Mexico", "priceZAR": "9 000", "priceUSD": "200", "rating": "★★★" ,"path" :"assets/mexico.jpg"},
-      {"id": "5", "name":"Turkey", "priceZAR": "12 000", "priceUSD": "280", "rating": "★★★★" , "path" :"assets/turkey.jpg"},
-      {"id": "6", "name":"Bali", "priceZAR": "10 000", "priceUSD": "250", "rating": "★★★★★" ,"path" :"assets/bali.jpeg"},
-      {"id": "7", "name":"Thailand", "priceZAR": "8 000", "priceUSD": "180", "rating": "★★★★★" , "path" : "assets/thailand.jpg"},
-      {"id": "8", "name":"Brazil", "priceZAR": "9 000", "priceUSD": "200", "rating": "★★★" , "path" : "assets/brazil.jpg"},
-      {"id": "9", "name":"Machu Picchu", "priceZAR": "10 000", "priceUSD": "250", "rating": "★★★" , "path" :"assets/machu picchu.jpg"},
-      {"id": "10", "name":"Maldives", "priceZAR": "15 000", "priceUSD": "300", "rating": "★★★★★" , "path": "assets/maldives.jpg"},
-      {"id": "11", "name":"Paris", "priceZAR": "11 000", "priceUSD": "260", "rating": "★★★★★★" , "path": "assets/paris.jpg"},
-      {"id": "12", "name":"Taj Mahal", "priceZAR": "7 000", "priceUSD": "150", "rating": "★★★★" , "path": "assets/tajmahal india.jpg"},
-      ]
-    
+      document.addEventListener("DOMContentLoaded", function () {  
+        var vinyls = [
+        {"id": "0", "name":"Asia", "priceZAR": "6 000", "priceUSD": "140", "rating": "★","path":"assets/asia.jpg"},
+        {"id": "1", "name":"Santorini", "priceZAR": "20 000", "priceUSD": "500", "rating": "★★","path":"assets/santorini.jpg"},
+        {"id": "2", "name":"European Cruise", "priceZAR": "13 000", "priceUSD": "239", "rating": "★★★★★★" ,"path" :"assets/European Cruise.jpg"},
+        {"id": "3", "name":"Italy", "priceZAR": "15 000", "priceUSD": "300", "rating": "★★★★★★" , "path": "assets/italy.jpg"},
+        {"id": "4", "name":"Mexico", "priceZAR": "9 000", "priceUSD": "200", "rating": "★★★" ,"path" :"assets/mexico.jpg"},
+        {"id": "5", "name":"Turkey", "priceZAR": "12 000", "priceUSD": "280", "rating": "★★★★" , "path" :"assets/turkey.jpg"},
+        {"id": "6", "name":"Bali", "priceZAR": "10 000", "priceUSD": "250", "rating": "★★★★★" ,"path" :"assets/bali.jpeg"},
+        {"id": "7", "name":"Thailand", "priceZAR": "8 000", "priceUSD": "180", "rating": "★★★★★" , "path" : "assets/thailand.jpg"},
+        {"id": "8", "name":"Brazil", "priceZAR": "9 000", "priceUSD": "200", "rating": "★★★" , "path" : "assets/brazil.jpg"},
+        {"id": "9", "name":"Machu Picchu", "priceZAR": "10 000", "priceUSD": "250", "rating": "★★★" , "path" :"assets/machu picchu.jpg"},
+        {"id": "10", "name":"Maldives", "priceZAR": "15 000", "priceUSD": "300", "rating": "★★★★★" , "path": "assets/maldives.jpg"},
+        {"id": "11", "name":"Paris", "priceZAR": "11 000", "priceUSD": "260", "rating": "★★★★★★" , "path": "assets/paris.jpg"},
+        {"id": "12", "name":"Taj Mahal", "priceZAR": "7 000", "priceUSD": "150", "rating": "★★★★" , "path": "assets/tajmahal india.jpg"},
+        ]
       
-      var dollars = document.getElementsByClassName('USD');
-      var rands = document.getElementsByClassName('ZAR');
-
-      var isConverted = false;
-        // Currency Converter
-        document.getElementById("converter").addEventListener("click", function() {
-            console.log("button pressed");
-            if (isConverted) {
-                isConverted = false;
-            } else {
-                isConverted = true;
-            }
-            convert_display();
-        });
-     
-        function convert_display(){
-            if (isConverted) {
-                for (var i=0;i<dollars.length;i+=1){
-                dollars[i].style.display = 'block';
-                }
-                for (var i=0;i<rands.length;i+=1){
-                rands[i].style.display = 'none';
-                }
-            } else {
-                for (var i=0;i<dollars.length;i+=1){
-                dollars[i].style.display = 'none';
-                }
-                for (var i=0;i<rands.length;i+=1){
-                rands[i].style.display = 'block';
-                }
-            }
-        }
+        
+        //var dollars = document.getElementsByClassName('USD');
+        var rands = document.getElementsByClassName('ZAR');
+  
+        var isConverted = false;
+          // Currency Converter
+          document.getElementById("converter").addEventListener("click", function() {
+              console.log("button pressed");
+              if (isConverted) {
+                  isConverted = false;
+              } else {
+                  isConverted = true;
+              }
+              convert_display();
+          });
        
-        convert_display();
+          function convert_display(){
+              if (isConverted) {
+                  /*for (var i=0;i<dollars.length;i+=1){
+                  dollars[i].style.display = 'block';
+                  }*/
+                  for (var i=0;i<rands.length;i+=1){
+                  rands[i].style.display = 'none';
+                  }
+              } else {
+                  /*for (var i=0;i<dollars.length;i+=1){
+                  dollars[i].style.display = 'none';
+                  }*/
+                  for (var i=0;i<rands.length;i+=1){
+                  rands[i].style.display = 'block';
+                  }
+              }
+          }
+         
+          convert_display();
 
-        //Cart
-        var cart = [];
-        var totalZAR = 0;
-        var totalUSD = 0;
-
-        function addToCart(index) {
-            if (typeof index !== 'undefined') {
-                cart.push(index);
-                console.log(cart);
-                totalZAR = totalZAR + parseInt(vinyls[index].priceZAR);
-                totalUSD = totalUSD + parseInt(vinyls[index].priceUSD);
-                console.log("Total ZAR: " + totalZAR);
-                console.log("Total USD: " + totalUSD);
-                display_cart();
-
-                // Update the cart in localStorage
-                localStorage.setItem('cart', JSON.stringify(cart));
-            }
-        }
-
-        // Function to display the cart
-        function display_cart() {
-            // Display the cart contents
-            console.log("Cart: ", cart);
-
-            // Display the total amounts
-            console.log("Total ZAR: " + totalZAR);
-            console.log("Total USD: " + totalUSD);
-        }
-
-        // Load the cart and display it on page load
-        display_cart();
-
-
-
-
-        // Items in cart
-        function display_cart() {
-            var cart_div = document.getElementById('cart');
-            var checkout_page = document.getElementById('checkout_page');
-            cart_div.innerHTML = "";
-            if (cart.length != 0) {
-                for (let index = 0; index < cart.length; index++) {
-                cart_div.innerHTML = cart_div.innerHTML + '<div class="trip-card"><img height="200" src= "'+ vinyls[cart[index]].path+'"><p>'+vinyls[cart[index]].rating+'</p><h3>'+vinyls[cart[index]].name+'</h3><p class="ZAR">R'+vinyls[cart[index]].priceZAR+'</p><p class="USD" style="display: none;">$'+vinyls[cart[index]].priceUSD+'</p></div>'
-                }
-                cart_div.innerHTML = cart_div.innerHTML + '<button class="btn" onclick="clear_cart()">Clear Cart</button>';
-                display_total(totalZAR, totalUSD);
-                checkout_page.style.display = "block";
-            } else{
-                cart_div.innerHTML = "<h2>Cart is empty</h2>"
-                checkout_page.style.display = "none";
-            }
-            document.getElementById('items-in-cart').innerHTML = cart.length;
-            convert_display();
-        }
-        display_cart();
-
-        //  Displays total amount
-        function display_total(amountZAR, amountUSD) {
-            var total_zar = document.getElementById('cart-total-zar');
-            var total_usd = document.getElementById('cart-total-usd');
-            total_zar.innerHTML = "R" + amountZAR;
-            total_usd.innerHTML = "$" + amountUSD;
-        }
-
-        // Clear cart
-        function clear_cart() {
-            cart = [];
-            totalZAR = 0;
-            totalUSD = 0;
-
-            var coupon = document.getElementById('coupon_field');
-            var error = document.getElementById('coupon-error');
-            var submit = document.getElementById('apply-coupon');
-
-            coupon.disabled = false;
-            coupon.placeholder = "Coupon code";
-            submit.disabled = false;
-            coupon.style = "";
-
-            display_cart();
-        }
-
+          // Function to display the cart
+          function display_cart() {
+              // Display the cart contents
+              console.log("trip1 ", cart);
+  
+              // Display the total amounts
+              console.log("Total ZAR: " + totalZAR);
+              //console.log("Total USD: " + totalUSD);
+          }
+  
+          // Load the cart and display it on page load
+          display_cart();
+  
+      });
       
-        // Deducts the discount 
-        function applyCoupon() {
-            var coupon = document.getElementById('coupon_field');
-            var error = document.getElementById('coupon-error');
-            var submit = document.getElementById('apply-coupon');
-
-            if (coupon.value == "DV100") {
-                totalZAR = totalZAR - (totalZAR / 100 * 25);
-                totalUSD = totalUSD - (totalUSD / 100 * 25);
-                error.style.display = "none";
-                coupon.style = "";
-                display_total(totalZAR, totalUSD);
-                coupon.disabled = true;
-                coupon.placeholder = "Coupon successful";
-                coupon.value = "";
-                submit.disabled = true;
-            } else {
-                // Shows an error if the code is invalid
-                error.style.display = "block";
-                coupon.placeholder = "INVALID COUPON CODE"
-                coupon.style.borderColor = "red";
-            }
-        }
-
-        //Items in cart and updates the number of items sold
-        var vinyls_sold = 0;
-        function checkout() {
-            vinyls_sold = vinyls_sold + cart.length;
-            document.getElementById('vinyls-sold').innerHTML = `<h3>We have sold <span class="vinyls-sold-number">` + vinyls_sold + `</span> trips </h3>`;
-            clear_cart();
-        }
-
-
-        ratings();
-        function ratings() {
-            console.log("changed");
-            var rating= document.getElementById("rating").value;
-            var starrating= document.getElementById("StarRating");
-
-            starrating.innerHTML = "";
-            for (let index = 0; index < vinyls.length; index++) {
-                if (rating==vinyls[index].rating) {
-                starrating.innerHTML= starrating.innerHTML+'<div class="trip-card"><img height="200" src="'+ vinyls[index].path+'"><p>'+vinyls[index].rating+'</p><h3>'+vinyls[index].name+'</h3><p class="ZAR">R'+vinyls[index].priceZAR+'</p><p class="USD" style="display: none;">$'+vinyls[index].priceUSD+'</p><button class="btn" onclick="addToCart('+ vinyls[index].id +')">Purchase Ticket</button></div>';
-                }
-            }
-            convert_display();
-        }
-    });
-  </script>
+    </script>
 
   </body>
 </html>

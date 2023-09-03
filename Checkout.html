@@ -46,7 +46,7 @@
     <br>
     <div id="Checkout" style="display: block;">
       <div class="section">
-          <div class="vinyl_section" id="trip-card">
+          <div class="vinyl_section" id="cart">
             <div id="cart-items"></div>
             <div id="cart-total"></div>
           </div>
@@ -85,9 +85,23 @@
   <script>
     
     var totalZAR = 0;
-    var totalUSD = 0;
-    // Get the cart data from localStorage
+    //var totalUSD = 0;
+    // Retrieve cart data from localStorage
     var cartData = JSON.parse(localStorage.getItem('cart'));
+    var totalAmount = 0;
+
+    if (cartData && cartData.length > 0) {
+        var cartHTML = '<h2>Your Cart:</h2><ul>';
+        for (var i = 0; i < cartData.length; i++) {
+            var item = cartData[i];
+            cartHTML += `<div class="trip-card">... Trip details ...</div>`;
+            totalAmount += parseFloat(item.priceZAR);
+        }
+        cartHTML += '</ul>';
+        cartItemsContainer.innerHTML = cartHTML;
+    } else {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+    }
 
     // Get the HTML element where you want to display the cart items
     var cartItemsContainer = document.getElementById('cart-items');
@@ -125,8 +139,18 @@
         // If the cart is empty, display a message
         cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
     }
-
+    // Display the total amount
     cartTotalContainer.innerHTML = '<h2>Total: R ' + totalAmount.toFixed(2) + ' </h2>';
+
+    // Display the total amount and perform checkout
+    function checkout() {
+        // Display a confirmation message
+        alert('Thank you for your purchase!');
+
+        // Clear the cart and redirect to trips page
+        clear_cart();
+        window.location.href = 'trips.html';
+    }
 
 
     // Clear cart
@@ -150,27 +174,31 @@
   
     // Deducts the discount 
     function applyCoupon() {
-        var coupon = document.getElementById('coupon_field');
-        var error = document.getElementById('coupon-error');
-        var submit = document.getElementById('apply-coupon');
+    var coupon = document.getElementById('coupon_field');
+    var error = document.getElementById('coupon-error');
+    var submit = document.getElementById('apply-coupon');
 
-        if (coupon.value == "DV100") {
-            totalZAR = totalZAR - (totalZAR / 100 * 25);
-            totalUSD = totalUSD - (totalUSD / 100 * 25);
-            error.style.display = "none";
-            coupon.style = "";
-            display_total(totalZAR, totalUSD);
-            coupon.disabled = true;
-            coupon.placeholder = "Coupon successful";
-            coupon.value = "";
-            submit.disabled = true;
-        } else {
-            // Shows an error if the code is invalid
-            error.style.display = "block";
-            coupon.placeholder = "INVALID COUPON CODE"
-            coupon.style.borderColor = "red";
-        }
+    var validCouponCodes = ["ASI123", "BALI456", "CRB123","BRZ653", "ITL924", "MHP817", "MXO158", "PRS496", "SNR374", "TJM295", "THL538", "TRK105"]; // List of valid coupon codes
+
+    if (validCouponCodes.includes(coupon.value)) { // Check if entered code is in the list
+        totalZAR = totalAmount - (totalAmount / 100 * 25);
+        totalUSD = totalAmount - (totalAmount / 100 * 25);
+        error.style.display = "none";
+        coupon.style = "";
+        display_total(totalZAR, totalUSD);
+        coupon.disabled = true;
+        coupon.placeholder = "Coupon successful";
+        coupon.value = "";
+        submit.disabled = true;
+    } else {
+        // Shows an error if the code is invalid
+        error.style.display = "block";
+        coupon.placeholder = "INVALID COUPON CODE";
+        coupon.style.borderColor = "red";
     }
+}
+
+
 
     //Items in cart and updates the number of items sold
     var vinyls_sold = 0;
