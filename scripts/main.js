@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     
     var randomVinylIndex= (Math.round(Math.random()*(vinyls.length-1)))
 
-    randomVinyl.innerHTML= '<div class="trip-card"><img height="200" src= "'+ vinyls[randomVinylIndex].path+'"><p>'+vinyls[randomVinylIndex].rating+'</p><h3>'+vinyls[randomVinylIndex].name+'</h3><p class="ZAR">R'+vinyls[randomVinylIndex].priceZAR+'</p><p class="USD" style="display: none;">$'+vinyls[randomVinylIndex].priceUSD+'</p><button class="btn" onclick="addToCart('+ vinyls[randomVinylIndex].id +')">Purchase Ticket</button></div>';
+    randomVinyl.innerHTML= '<div class="tripcard"><img height="200" src= "'+ vinyls[randomVinylIndex].path+'"><p>'+vinyls[randomVinylIndex].rating+'</p><h3>'+vinyls[randomVinylIndex].name+'</h3><p class="ZAR">R'+vinyls[randomVinylIndex].priceZAR+'</p><p class="USD" style="display: none;">$'+vinyls[randomVinylIndex].priceUSD+'</p><button class="btn" onclick="addToCart('+ vinyls[randomVinylIndex].id +')">Purchase Ticket</button></div>';
     convert_display();
   })
 
@@ -97,12 +97,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
         // Items in cart
         function display_cart() {
-            var cart_div = document.getElementById('cart');
+            var cart_div = document.getElementById('tripcard');
             var checkout_page = document.getElementById('checkout_page');
             cart_div.innerHTML = "";
             if (cart.length != 0) {
                 for (let index = 0; index < cart.length; index++) {
-                cart_div.innerHTML = cart_div.innerHTML + '<div class="trip-card"><img height="200" src= "'+ vinyls[cart[index]].path+'"><p>'+vinyls[cart[index]].rating+'</p><h3>'+vinyls[cart[index]].name+'</h3><p class="ZAR">R'+vinyls[cart[index]].priceZAR+'</p><p class="USD" style="display: none;">$'+vinyls[cart[index]].priceUSD+'</p></div>'
+                cart_div.innerHTML = cart_div.innerHTML + '<div class="tripcard"><img height="200" src= "'+ vinyls[cart[index]].path+'"><p>'+vinyls[cart[index]].rating+'</p><h3>'+vinyls[cart[index]].name+'</h3><p class="ZAR">R'+vinyls[cart[index]].priceZAR+'</p><p class="USD" style="display: none;">$'+vinyls[cart[index]].priceUSD+'</p></div>'
                 }
                 cart_div.innerHTML = cart_div.innerHTML + '<button class="btn" onclick="clear_cart()">Clear Cart</button>';
                 display_total(totalZAR, totalUSD);
@@ -111,72 +111,49 @@ document.addEventListener("DOMContentLoaded", (e) => {
                 cart_div.innerHTML = "<h2>Cart is empty</h2>"
                 checkout_page.style.display = "none";
             }
-            document.getElementById('items-in-cart').innerHTML = cart.length;
             convert_display();
         }
         display_cart();
 
-                // Retrieve the selected trip information from localStorage
-        var selectedTripInfo = JSON.parse(localStorage.getItem('cart'));
-
-        // Display the information on the checkout page
-        document.getElementById('name').textContent = selectedTripInfo.name;
-        document.getElementById('priceZAR').textContent = selectedTripInfo.priceZAR;
-        document.getElementById('code').textContent = selectedTripInfo.tripCode;
-        document.getElementById('rating').textContent = selectedTripInfo.rating;
-
-
-        
-
-      
-        
 
 });
 
-function addToCart() {
-  let addToCart = document.getElementById("vinyls");
-  let total = document.getElementById("priceZAR");
+let cart = []
+let vinyls = [
+  {"id": "0", "name":"Asia", "priceZAR": "6 000", "priceUSD": "140", "rating": "★","path":"assets/asia.jpg"},
+  {"id": "1", "name":"Santorini", "priceZAR": "20 000", "priceUSD": "500", "rating": "★★","path":"assets/santorini.jpg"},
+  {"id": "2", "name":"European Cruise", "priceZAR": "13 000", "priceUSD": "239", "rating": "★★★★★★" ,"path" :"assets/European Cruise.jpg"},
+  {"id": "3", "name":"Italy", "priceZAR": "15 000", "priceUSD": "300", "rating": "★★★★★★" , "path": "assets/italy.jpg"},
+  {"id": "4", "name":"Mexico", "priceZAR": "9 000", "priceUSD": "200", "rating": "★★★" ,"path" :"assets/mexico.jpg"},
+  {"id": "5", "name":"Turkey", "priceZAR": "12 000", "priceUSD": "280", "rating": "★★★★" , "path" :"assets/turkey.jpg"},
+  {"id": "6", "name":"Bali", "priceZAR": "10 000", "priceUSD": "250", "rating": "★★★★★" ,"path" :"assets/bali.jpeg"},
+  {"id": "7", "name":"Thailand", "priceZAR": "8 000", "priceUSD": "180", "rating": "★★★★★" , "path" : "assets/thailand.jpg"},
+  {"id": "8", "name":"Brazil", "priceZAR": "9 000", "priceUSD": "200", "rating": "★★★" , "path" : "assets/brazil.jpg"},
+  {"id": "9", "name":"Machu Picchu", "priceZAR": "10 000", "priceUSD": "250", "rating": "★★★" , "path" :"assets/machu picchu.jpg"},
+  {"id": "10", "name":"Maldives", "priceZAR": "15 000", "priceUSD": "300", "rating": "★★★★★" , "path": "assets/maldives.jpg"},
+  {"id": "11", "name":"Paris", "priceZAR": "11 000", "priceUSD": "260", "rating": "★★★★★★" , "path": "assets/paris.jpg"},
+  {"id": "12", "name":"Taj Mahal", "priceZAR": "7 000", "priceUSD": "150", "rating": "★★★★" , "path": "assets/tajmahal india.jpg"},
+]
 
-  addToCart.innerHTML = ``;
 
-  let priceZAR = 0;
+// Function to add items to the cart
+function addToCart(tripId) {
+  
+  let tripcard = JSON.parse(localStorage.getItem('cart')) || [];
 
-  for (let i = 0; i < vinyls.length; i++) {
-    let id = vinyls[i].id;
-    let name = vinyls[i].name;
-    let priceZAR = vinyls[i].priceZAR;
-    let rating = vinyls[i].rating;
-    let path = vinyls[i].path;
+  // Add the selected tripId to the cart
+  tripcard.push(tripId);
 
-    priceZAR += price;
+  localStorage.setItem('cart', JSON.stringify(tripcard));
 
-    addToCart.innerHTML += `
-      <div class="trip-card" id="trip1" style="width: 80%">
-        <img class="card-img-top" src=${path} alt=" ">
-        <div class="card-body">
-          <h5 class="trip-info">${name}</h5>
-          <p class="trip-details">
-            <p>${priceZAR.toFixed(2)}</p>
-            <p>${rating}</p>
-          </p>
-          <button class="purchase-btn" onclick="addToCart(${id})">Purchase Ticket</button>
-        </div>
-      </div>`;
-  }
-
-  total.innerHTML = "R" + priceZAR.toFixed(2);
-
-  // Add the vinyl to the cart
-  let cart = JSON.parse(localStorage.getItem('trip1'));
-  cart.push(id);
-  localStorage.setItem('trip1', JSON.stringify(cart));
-
-  // Redirect to the checkout page
+  // Redirect to the Checkout page
   window.location.href = 'Checkout.html';
+  
 }
 
+
 function display_total(amountZAR, amountUSD) {
-  var total_zar = document.getElementById('cart-total-zar');
+  var total_zar = document.getElementById('cart-total');
   var total_usd = document.getElementById('cart-total-usd');
   total_zar.innerHTML = "R" + amountZAR;
   total_usd.innerHTML = "$" + amountUSD;
@@ -240,7 +217,7 @@ filterbyrating();
             starrating.innerHTML = "";
             for (let index = 0; index < vinyls.length; index++) {
                 if (rating==vinyls[index].rating) {
-                starrating.innerHTML= starrating.innerHTML+'<div class="trip-card"><img height="200" src="'+ vinyls[index].path+'"><p>'+vinyls[index].rating+'</p><h3>'+vinyls[index].name+'</h3><p class="ZAR">R'+vinyls[index].priceZAR+'</p><p class="USD" style="display: none;">$'+vinyls[index].priceUSD+'</p><button class="btn" onclick="addToCart('+ vinyls[index].id +')">Purchase Ticket</button></div>';
+                starrating.innerHTML= starrating.innerHTML+'<div class="tripcard"><img height="200" src="'+ vinyls[index].path+'"><p>'+vinyls[index].rating+'</p><h3>'+vinyls[index].name+'</h3><p class="ZAR">R'+vinyls[index].priceZAR+'</p><p class="USD" style="display: none;">$'+vinyls[index].priceUSD+'</p><button class="btn" onclick="addToCart('+ vinyls[index].id +')">Purchase Ticket</button></div>';
                 }
             }
             convert_display();

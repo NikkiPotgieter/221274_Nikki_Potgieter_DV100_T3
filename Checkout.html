@@ -47,8 +47,7 @@
     <div id="Checkout" style="display: block;">
       <div class="section">
           <div class="vinyl_section" id="cart">
-            <div id="cart-items"></div>
-            <div id="cart-total"></div>
+            
           </div>
       </div>
       <div class="section">
@@ -84,65 +83,9 @@
   <script src="scripts/main.js"></script>
   <script>
     
-    var totalZAR = 0;
-    //var totalUSD = 0;
-    // Retrieve cart data from localStorage
-    var cartData = JSON.parse(localStorage.getItem('cart'));
-    var totalAmount = 0;
-
-    if (cartData && cartData.length > 0) {
-        var cartHTML = '<h2>Your Cart:</h2><ul>';
-        for (var i = 0; i < cartData.length; i++) {
-            var item = cartData[i];
-            cartHTML += `<div class="trip-card">... Trip details ...</div>`;
-            totalAmount += parseFloat(item.priceZAR);
-        }
-        cartHTML += '</ul>';
-        cartItemsContainer.innerHTML = cartHTML;
-    } else {
-        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
-    }
-
-    // Get the HTML element where you want to display the cart items
-    var cartItemsContainer = document.getElementById('cart-items');
-    var cartTotalContainer = document.getElementById('cart-total');
+    let tripcard = JSON.parse(localStorage.getItem('cart')) || [];
 
 
-    var totalAmount = 0;
-
-    if (cartData && cartData.length > 0) {
-        var cartHTML = '<h2>Your Cart:</h2><ul>';
-          
-        // Loop through each item in the cart
-        for (var i = 0; i < cartData.length; i++) {
-            var item = cartData[i];
-            cartHTML += `<div class="trip-card" style="width: 80%">
-            <div class="card-body">
-              <h5 class="trip-info">Destination: ${item.name}</h5>
-              <p class="trip-details">
-                <p>Departure: ${item.depart}</p>
-                <p>Duration: ${item.duration}</p>
-                <p>Trip Code: ${item.code}</p>
-                <p>Price ZAR: R ${item.priceZAR}</p>
-                <p>Rating: ${item.rating}</p>
-              </p>
-            </div>
-          </div>`;
-
-          totalAmount += parseFloat(item.priceZAR);
-        }
-
-        cartHTML += '</ul>';
-
-        cartItemsContainer.innerHTML = cartHTML;
-    } else {
-        // If the cart is empty, display a message
-        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
-    }
-    // Display the total amount
-    cartTotalContainer.innerHTML = '<h2>Total: R ' + totalAmount.toFixed(2) + ' </h2>';
-
-    // Display the total amount and perform checkout
     function checkout() {
         // Display a confirmation message
         alert('Thank you for your purchase!');
@@ -199,14 +142,6 @@
 }
 
 
-
-    //Items in cart and updates the number of items sold
-    var vinyls_sold = 0;
-    function checkout() {
-        vinyls_sold = vinyls_sold + cart.length;
-        document.getElementById('vinyls-sold').innerHTML = `<h3>We have sold <span class="vinyls-sold-number">` + vinyls_sold + `</span> trips </h3>`;
-        clear_cart();
-    }
 
   </script>
   </body>

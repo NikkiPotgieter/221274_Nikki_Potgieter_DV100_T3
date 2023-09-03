@@ -143,7 +143,7 @@ button {
   }
 
   /* Styling for trip cards */
-.trip-card {
+.tripcard {
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
@@ -152,15 +152,15 @@ button {
     display: inline-block;
   }
   
-  .trip-card.active {
+  .tripcard.active {
     border-color: #007bff; /* Change color to indicate active */
   }
   
-  .trip-card .trip-info {
+  .tripcard .trip-info {
     font-weight: bold;
   }
   
-  .trip-card .trip-details {
+  .tripcard .trip-details {
     margin-top: 10px;
   }  
 
