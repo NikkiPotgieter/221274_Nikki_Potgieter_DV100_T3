@@ -22,8 +22,7 @@ The trip page with random trip on Thalassophile
 The trip page with all the trip on Thalassophile
 
 My video:
-C:\Users\Nikki Potgieter\OneDrive\Desktop\Open Window 2nd year\DV Term 3\221274_Nikki_Potgieter_DV100_T3\Sceenshots\Nikki_Potgieter_221274_DV100_T3 video.mp4
-
+https://1drv.ms/v/s!AmoTj1JHseRC4FYkFlasZ_iVCfvW?e=PtMyjp 
 
 Getting started:
 
